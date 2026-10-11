@@ -4,7 +4,32 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>devkit-ui</title>
+    <meta
+      name="description"
+      content="DevKit UI is a React, Vite, and Tailwind CSS component registry with live previews and copyable source."
+    />
+    <title>DevKit UI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      ;(function () {
+        var dark = false
+        if (location.pathname.indexOf('/preview/') === 0) {
+          dark = new URLSearchParams(location.search).get('theme') === 'dark'
+        } else {
+          try {
+            dark = localStorage.getItem('devkit-theme') === 'dark'
+          } catch (error) {
+            dark = false
+          }
+        }
+        if (dark) document.documentElement.classList.add('dark')
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
